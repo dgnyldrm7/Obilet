@@ -1,0 +1,139 @@
+﻿@model ObiletCase.Web.Models.HomeIndexViewModel
+
+@{
+    ViewData["Title"] = "Bileti Bul";
+
+    // Artık ViewBag değil, doğrudan modelden alıyoruz:
+    var locations = Model?.Locations ?? new List<ObiletCase.Core.DTOs.BusLocation.BusLocationDto>();
+    int defaultOriginId = Model?.DefaultOriginId ?? 349;
+    int defaultDestinationId = Model?.DefaultDestinationId ?? 356;
+
+    var departureDate = DateTime.Today.AddDays(1);
+}
+
+<div class="mobile-wrapper shadow-sm mx-auto">
+    <!-- Üst Mavi Bar & Obilet Başlığı -->
+    <div class="header-bar d-flex align-items-center justify-content-center">
+        <span class="brand-title">obilet</span>
+    </div>
+
+    <div class="content-body">
+        @if (TempData["ErrorMessage"] != null)
+        {
+            <div class="alert alert-danger py-2 small mb-3">
+                @TempData["ErrorMessage"]
+            </div>
+        }
+
+        <form id="searchForm" asp-controller="Journey" asp-action="Index" method="get">
+
+            <!-- Lokasyon Kartı (Nereden / Nereye) -->
+            <div class="card border-0 shadow-xs mb-3 position-relative location-card">
+
+                <!-- Nereden -->
+                <div class="p-3 border-bottom location-field">
+                    <label class="field-title">Nereden</label>
+                    <div class="d-flex align-items-center">
+                        <i class="bi bi-geo-alt text-muted fs-5 me-2"></i>
+                        <select class="form-select border-0 p-0 fw-semibold location-select" id="originSelect" name="originId" required>
+                            @if (locations.Any())
+                            {
+                                @foreach (var loc in locations)
+                                {
+                                    bool isSelected = loc.Id == defaultOriginId;
+                                    <option value="@loc.Id" data-name="@(loc.Name ?? string.Empty)" selected="@(isSelected ? "selected" : null)">
+                                        @(loc.Name ?? "Bilinmiyor")
+                                    </option>
+                                }
+                            }
+                            else
+                            {
+                                <option value="349" data-name="İstanbul Avrupa" selected="selected">İstanbul Avrupa</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Swap Butonu -->
+                <button type="button" id="btnSwap" class="btn-swap shadow-sm" title="Kalkış ve Varış Noktasını Değiştir">
+                    <i class="bi bi-arrow-down-up"></i>
+                </button>
+
+                <!-- Nereye -->
+                <div class="p-3 location-field">
+                    <label class="field-title">Nereye</label>
+                    <div class="d-flex align-items-center">
+                        <i class="bi bi-geo-alt text-muted fs-5 me-2"></i>
+                        <select class="form-select border-0 p-0 fw-semibold location-select" id="destinationSelect" name="destinationId" required>
+                            @if (locations.Any())
+                            {
+                                @foreach (var loc in locations)
+                                {
+                                    bool isSelected = loc.Id == defaultDestinationId;
+                                    <option value="@loc.Id" data-name="@(loc.Name ?? string.Empty)" selected="@(isSelected ? "selected" : null)">
+                                        @(loc.Name ?? "Bilinmiyor")
+                                    </option>
+                                }
+                            }
+                            else
+                            {
+                                <option value="356" data-name="Ankara" selected="selected">Ankara</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gizli İsim Alanları -->
+            <input type="hidden" id="originName" name="originName" />
+            <input type="hidden" id="destinationName" name="destinationName" />
+
+            <!-- Tarih Kartı -->
+            <div class="card border-0 shadow-xs mb-4 p-3 date-card">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="flex-grow-1 me-2">
+                        <label class="field-title">Tarih</label>
+                        <div class="d-flex align-items-center cursor-pointer" onclick="document.getElementById('departureDate').showPicker ? document.getElementById('departureDate').showPicker() : document.getElementById('departureDate').focus()">
+                            <i class="bi bi-calendar3 text-muted fs-5 me-2"></i>
+                            <span id="dateDisplay" class="fw-semibold text-secondary"></span>
+                            <input type="date" class="visually-hidden" id="departureDate" name="departureDate"
+                                   value="@departureDate.ToString("yyyy-MM-dd")"
+                                   min="@DateTime.Today.ToString("yyyy-MM-dd")" required />
+                        </div>
+                    </div>
+
+                    <!-- Bugün / Yarın Butonları -->
+                    <div class="d-flex flex-column gap-1">
+                        <button type="button" class="btn btn-date-quick" id="btnToday">Bugün</button>
+                        <button type="button" class="btn btn-date-quick" id="btnTomorrow">Yarın</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bileti Bul Butonu -->
+            <button type="submit" id="btnSubmitSearch" class="btn btn-primary w-100 py-3 fw-bold fs-5 btn-search mb-4">
+                <span class="spinner-border spinner-border-sm me-2 d-none" id="searchSpinner" role="status" aria-hidden="true"></span>
+                <span id="btnSearchText">Bileti Bul</span>
+            </button>
+
+        </form>
+
+        <hr class="text-muted opacity-25" />
+
+        <!-- Alt Bilgilendirme Metni -->
+        <p class="footer-description text-muted mb-0">
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+        </p>
+    </div>
+</div>
+
+
+
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/pages/search-index.css" asp-append-version="true" />
+}
+
+@section Scripts {
+    <script src="~/js/pages/search-index.js" asp-append-version="true"></script>
+}

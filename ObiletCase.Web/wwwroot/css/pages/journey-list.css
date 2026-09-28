@@ -1,0 +1,96 @@
+﻿
+body {
+    background-color: #f7f9fa;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.mobile-wrapper {
+    max-width: 420px;
+    background-color: #f9fafb;
+    border: 1px solid #ebebeb;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-top: 20px;
+    min-height: 90vh;
+}
+
+/* Üst Mavi Bar */
+.header-bar {
+    background-color: #2b49aa;
+    height: 68px;
+    position: relative;
+}
+
+.btn-back {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    cursor: pointer;
+}
+
+.route-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: -0.2px;
+}
+
+.date-subtitle {
+    font-size: 0.8rem;
+    opacity: 0.9;
+    font-weight: 400;
+    margin-top: 1px;
+}
+
+/* Sefer Kartı Tasarımı */
+.journey-card {
+    background-color: #ffffff;
+    border: 1px solid #e2e5e9 !important;
+    border-radius: 8px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+    .journey-card:hover {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+/* Zaman ve Duraklar */
+.sub-label {
+    display: block;
+    font-size: 0.65rem;
+    color: #2b49aa;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    line-height: 1;
+    margin-bottom: 2px;
+}
+
+.time-val {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #1a2238;
+    line-height: 1.1;
+}
+
+.stations-text {
+    font-size: 0.8rem;
+    color: #636b75 !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 250px;
+}
+
+/* Kırmızı Fiyat Butonu */
+.price-badge {
+    background-color: #d32f2f;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 8px 14px;
+    border-radius: 6px;
+    white-space: nowrap;
+    box-shadow: 0 2px 4px rgba(211, 47, 47, 0.2);
+}
+

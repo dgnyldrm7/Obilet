@@ -1,0 +1,115 @@
+﻿
+body {
+    background-color: #f7f9fa;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    padding-bottom: 40px;
+}
+
+.mobile-wrapper {
+    max-width: 420px;
+    background-color: #ffffff;
+    border: 1px solid #ebebeb;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-top: 20px;
+    height: auto;
+}
+
+.header-bar {
+    background-color: #2b49aa;
+    height: 60px;
+    width: 100%;
+}
+
+.brand-title {
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.content-body {
+    padding: 24px 18px 24px 18px;
+}
+
+.location-card, .date-card {
+    background-color: #ffffff;
+    border: 1px solid #eef0f2 !important;
+    border-radius: 6px;
+}
+
+.field-title {
+    color: #2b49aa;
+    font-weight: 700;
+    font-size: 0.85rem;
+    margin-bottom: 2px;
+    display: block;
+}
+
+.location-select {
+    color: #495057;
+    font-size: 1.05rem;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+    .location-select:focus {
+        outline: none;
+        box-shadow: none;
+    }
+
+.btn-swap {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 1px solid #c7c9cc;
+    background-color: #ffffff;
+    color: #555a60;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 5;
+}
+
+    .btn-swap:hover {
+        background-color: #f2f4f7;
+    }
+
+.btn-date-quick {
+    font-size: 0.8rem;
+    padding: 3px 14px;
+    border-radius: 4px;
+    font-weight: 500;
+    color: #525a62;
+    border: 1px solid #6b757e;
+    background-color: transparent;
+}
+
+    .btn-date-quick.active, .btn-date-quick:hover {
+        background-color: #56616a;
+        color: #ffffff;
+        border-color: #56616a;
+    }
+
+.btn-search {
+    background-color: #2b49aa !important;
+    border-color: #2b49aa !important;
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(43, 73, 170, 0.25);
+}
+
+    .btn-search:hover {
+        background-color: #213a8a !important;
+    }
+
+.footer-description {
+    font-size: 0.76rem;
+    line-height: 1.45;
+    text-align: justify;
+}
+

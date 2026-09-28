@@ -1,0 +1,83 @@
+﻿@model ObiletCase.Web.Models.JourneyListViewModel
+
+@{
+    ViewData["Title"] = $"{Model.OriginName} - {Model.DestinationName} Seferleri";
+}
+
+<div class="mobile-wrapper shadow-sm mx-auto">
+    <!-- Üst Mavi Bar & Geri Butonu -->
+    <div class="header-bar d-flex align-items-center position-relative px-3">
+        <!-- Anasayfaya dönüş rotası -->
+        <a asp-controller="Home" asp-action="Index" class="btn-back text-white text-decoration-none">
+            <i class="bi bi-arrow-left fs-4"></i>
+        </a>
+        <div class="header-center text-center text-white w-100">
+            <div class="route-title">@Model.OriginName - @Model.DestinationName</div>
+            <div class="date-subtitle">
+                @Model.DepartureDate.ToString("dd MMMM dddd", new System.Globalization.CultureInfo("tr-TR"))
+            </div>
+        </div>
+    </div>
+
+    <!-- Sefer Listesi Alanı -->
+    <div class="content-body p-3">
+        @if (Model.Journeys == null || !Model.Journeys.Any())
+        {
+            <div class="text-center py-5">
+                <i class="bi bi-bus-front text-muted" style="font-size: 3rem;"></i>
+                <p class="text-muted mt-3 mb-2">Bu güzergahta sefer bulunamadı.</p>
+                <!-- Anasayfaya dönüş rotası -->
+                <a asp-controller="Home" asp-action="Index" class="btn btn-outline-primary btn-sm">Aramayı Değiştir</a>
+            </div>
+        }
+        else
+        {
+            <div class="d-flex flex-column gap-3">
+                @foreach (var item in Model.Journeys)
+                {
+                    <div class="card journey-card p-3 shadow-2xs">
+                        <div class="d-flex justify-content-between align-items-center">
+                            
+                            <!-- Sol Taraf: Kalkış/Varış Saatleri ve Durak İsimleri -->
+                            <div class="journey-left-info">
+                                <div class="time-row d-flex align-items-baseline gap-2 mb-1">
+                                    <div class="time-block">
+                                        <span class="sub-label">KALKIŞ</span>
+                                        <span class="time-val">@item.Journey.Departure.ToString("HH:mm")</span>
+                                    </div>
+                                    
+                                    <i class="bi bi-arrow-right text-muted small px-1"></i>
+                                    
+                                    <div class="time-block">
+                                        <span class="sub-label">VARIŞ</span>
+                                        <span class="time-val">@item.Journey.Arrival.ToString("HH:mm")</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="stations-text text-muted">
+                                    @item.Journey.Origin - @item.Journey.Destination
+                                </div>
+                            </div>
+
+                            <!-- Sağ Taraf: Fiyat Butonu -->
+                            <div class="journey-right-price">
+                                <div class="price-badge">
+                                    @item.Journey.OriginalPrice.ToString("N2") @(item.Journey.Currency == "TRY" ? "TL" : item.Journey.Currency)
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+</div>
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/pages/journey-list.css" asp-append-version="true" />
+}
+
+@section Scripts {
+    <script src="~/js/pages/journey-list.js" asp-append-version="true"></script>
+}

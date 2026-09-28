@@ -1,0 +1,13 @@
+C:\Users\doganboy\Desktop\ObiletProject\ObiletCase\ObiletCase.Core\bin\Debug\net9.0\ObiletCase.Core.deps.json
+C:\Users\doganboy\Desktop\ObiletProject\ObiletCase\ObiletCase.Core\bin\Debug\net9.0\ObiletCase.Core.dll
+C:\Users\doganboy\Desktop\ObiletProject\ObiletCase\ObiletCase.Core\bin\Debug\net9.0\ObiletCase.Core.pdb
+C:\Users\doganboy\Desktop\ObiletProject\ObiletCase\ObiletCase.Core\obj\Debug\net9.0\ObiletCase.Core.csproj.AssemblyReference.cache
+C:\Users\doganboy\Desktop\ObiletProject\ObiletCase\ObiletCase.Core\obj\Debug\net9.0\ObiletCase.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\doganboy\Desktop\ObiletProject\ObiletCase\ObiletCase.Core\obj\Debug\net9.0\ObiletCase.Core.AssemblyInfoInputs.cache
+C:\Users\doganboy\Desktop\ObiletProject\ObiletCase\ObiletCase.Core\obj\Debug\net9.0\ObiletCase.Core.AssemblyInfo.cs
+C:\Users\doganboy\Desktop\ObiletProject\ObiletCase\ObiletCase.Core\obj\Debug\net9.0\ObiletCase.Core.csproj.CoreCompileInputs.cache
+C:\Users\doganboy\Desktop\ObiletProject\ObiletCase\ObiletCase.Core\obj\Debug\net9.0\ObiletCase.Core.dll
+C:\Users\doganboy\Desktop\ObiletProject\ObiletCase\ObiletCase.Core\obj\Debug\net9.0\refint\ObiletCase.Core.dll
+C:\Users\doganboy\Desktop\ObiletProject\ObiletCase\ObiletCase.Core\obj\Debug\net9.0\ObiletCase.Core.pdb
+C:\Users\doganboy\Desktop\ObiletProject\ObiletCase\ObiletCase.Core\obj\Debug\net9.0\ref\ObiletCase.Core.dll
+C:\Users\doganboy\Desktop\ObiletProject\ObiletCase\ObiletCase.Core\obj\Debug\net9.0\ObiletCa.DC256BB6.Up2Date

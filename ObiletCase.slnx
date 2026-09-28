@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="ObiletCase.Core/ObiletCase.Core.csproj" />
+  <Project Path="ObiletCase.Service/ObiletCase.Services.csproj" />
+  <Project Path="ObiletCase.Tests/ObiletCase.Tests.csproj" Id="ba44c6e7-bd1f-44e3-a0d6-2ced9429c96d" />
+  <Project Path="ObiletCase.Web/ObiletCase.Web.csproj" />
+</Solution>
